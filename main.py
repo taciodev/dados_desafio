@@ -97,3 +97,33 @@ plt.xticks(rotation=0)
 plt.tight_layout()
 
 plt.savefig('graficos/estado_vendedor.png')
+
+# análise de categoria
+unique_category = df['categoria'].value_counts()
+print(f"\nQuantidade de itens vendidos em cada categoria: {unique_category}")
+
+plt.figure(figsize=(12, 15))
+unique_category.plot(kind='barh', color='skyblue')
+plt.title('Quantidade de Itens Vendidos em Cada Categoria')
+plt.xlabel('Categoria')
+plt.ylabel('Quantidade de Itens')
+plt.xticks(rotation=0)
+plt.tight_layout()
+
+plt.savefig('graficos/categorias.png')
+
+# Calcula a quantidade de avaliações para cada score
+quantidade_por_score = df['score_avaliacao'].value_counts()
+
+print("\nQuantidade de avaliações:")
+print(quantidade_por_score)
+
+plt.figure(figsize=(8, 6))
+quantidade_por_score.plot(kind='bar', color='skyblue')
+plt.title('Quantidade de Avaliações por Score')
+plt.xlabel('Score')
+plt.ylabel('Quantidade de Avaliações')
+plt.xticks(rotation=0)
+plt.tight_layout()
+
+plt.savefig('graficos/score.png')
